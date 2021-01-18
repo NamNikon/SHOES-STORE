@@ -20,13 +20,13 @@ body {
 #menu-left h3 {
     color: #fff;
     background: #0080FF;
-    border-radius: 80%;
+    /*border-radius: 80%;*/
 }
 
 #menu-left li {
     background: #2EFE2E;
     margin-top: -7px;
-    border-radius: 80%;
+    /*border-radius: 80%;*/
 }
 
 #menu-left li:hover {
@@ -93,7 +93,6 @@ body {
     color: #227293;
     margin-top: 5px;
 }
-
 .pprice {
     font: bold 12px arial;
     color: #659db4;
@@ -176,7 +175,7 @@ p {
 .productname {
     font-size: 18px;
     font-weight: bold;
-    color: #f69;
+    color: #333333;
 }
 
 .price {
@@ -204,6 +203,7 @@ p {
     right: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: 8;
     display: none;
 }
 
@@ -241,12 +241,19 @@ p {
     cursor: pointer;
 }
 
+#uer{
+
+}
+
 @media (max-width: 1024px) {
     #re-menu {
         display: block;
         cursor: pointer;
     }
     #navbar {
+        display: none;
+    }
+    #title{
         display: none;
     }
 }

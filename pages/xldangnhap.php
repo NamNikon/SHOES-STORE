@@ -1,5 +1,7 @@
 <?php
-   $conn=new mysqli("localhost","root","","doan");
+session_start();
+require_once 'ketnoi.php';
+$db=getDbConnect();
 
    if(isset($_POST['dangnhap']))
    {
@@ -24,7 +26,5 @@
          exit;
       }
       $_SESSION['username'] = $username;
-      echo "Xin chào " . $username . ". Bạn đã đăng nhập thành công.";
-      die();   
+       header('location:index.php');
    }
-?>

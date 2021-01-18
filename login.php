@@ -44,21 +44,21 @@
     </div>
 
     <script>
-    var x = document.getElementById("login");
-    var y = document.getElementById("dangki");
-    var z = document.getElementById("btn");
+        var x = document.getElementById("login");
+        var y = document.getElementById("dangki");
+        var z = document.getElementById("btn");
 
-    function dangki() {
-        x.style.left = "-400px";
-        y.style.left = "50px";
-        z.style.left = "110px";
-    }
+        function dangki() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
 
-    function login() {
-        x.style.left = "50px";
-        y.style.left = "450px";
-        z.style.left = "0";
-    }
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
     </script>
 </body>
 

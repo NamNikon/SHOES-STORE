@@ -47,8 +47,8 @@ $sanPham = $db->query("SELECT * FROM san_pham WHERE id = " . $id)->fetch();
                             class="data"><?php $dinh_dang_moi = date("d-m-Y", strtotime($sanPham['ngay_dang']));echo $dinh_dang_moi ?></span>
                     </div>
 
-                    <div class="giohang">
-                        <a href="giohang.php?id=<?php echo $sanPham['ID'];
+                    <div class="giohang" id="cart">
+                        <a href="pages/giohang.php?id=<?php echo $sanPham['ID'];
                         ?>"><button class="btn btn-primary">Thêm
                                 vào giỏ hàng <i class="fas fa-shopping-cart"></i></button></a>
                     </div>

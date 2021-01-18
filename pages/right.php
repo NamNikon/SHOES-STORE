@@ -17,10 +17,10 @@
     <?php endforeach ?>
     <?php endif ?>
 
-    <?php if(isset($_REQUEST['loai_sp'])): ?> <center>
-        <h2 style="color:#fff;">Sản phẩm theo loại</h2>
-    </center>
-    <?php foreach($spTheoLoai as $sanPham): ?>
+    <?php if(isset($_REQUEST['loai_sp'])): ?>
+        <h2 style="color:#fff; text-align: center">Sản phẩm theo loại</h2>
+    <?php
+        foreach($spTheoLoai as $sanPham): ?>
     <div class="box">
         <a href="./?page=product&id=<?php echo $sanPham['ID']; ?>">
             <img src="jmg/<?php echo $sanPham['anh_dai_dien']; ?>" />
@@ -34,9 +34,8 @@
     <?php endforeach ?>
     <?php endif ?>
 
-    <?php if(isset($spMoi)): ?> <center>
-        <h2 style="color:#fff;">Sản phẩm mới</h2>
-    </center>
+    <?php if(isset($spMoi)): ?>
+        <h2 style="color:#fff; text-align: center">Sản phẩm mới</h2>
     <?php foreach($spMoi as $sanPham): ?>
     <div class="box">
         <a href="./?page=product&id=<?php echo $sanPham['ID']; ?>">
