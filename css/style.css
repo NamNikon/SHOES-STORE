@@ -1,8 +1,5 @@
-body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(../bg.jpg);
-    background-position: center;
-    overflow-x: hidden;
-    position: relative;
+body{
+    background:url("../jmg/back.png");
 }
 
 .hero {
@@ -132,6 +129,7 @@ p {
     min-height: 220px;
     height: 524px;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 #chitietleft {

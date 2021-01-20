@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body background="jmg/banner.jpg">
     <div class="hero">
         <div class="form-box">
             <div class="button-box">

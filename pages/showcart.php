@@ -1,5 +1,15 @@
 <?php
 session_start();
+require_once '../ketnoi.php';
+$db = getDbConnect();
+
+$list_id = array_keys($_SESSION['cart']);
+
+$list_id = implode(',',$list_id);
+
+
+$gh = $db->query("SELECT * FROM san_pham WHERE id IN ($list_id)")->fetchAll();
+
 ?>
 
 <html>
@@ -25,29 +35,63 @@ session_start();
     <script src="../js/script.js"></script>
     <link rel="icon" href="../jmg/icon.ico">
 </head>
-<body>
-
+<body background="../bg.jpg">
 <div class="container">
-
     <form>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Danh sách sản phẩm :</label>
+            <label for="exampleFormControlInput1">Danh sách sản phẩm đã
+                chọn </label>
             <table class="table table-striped">
                 <thead>
                 <th scope="col">Ảnh sản phẩm</th>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Giá sản phẩm</th>
                 <th scope="col">Số lượng sản phẩm</th>
+                <th scope="col"></th>
                 </thead>
                 <tbody>
+                <?php foreach($gh as $item1): ?>
                 <tr>
-                    <td>aaaa</td>
-                    <td>ssss</td>
-                    <td>ccc</td>
-                    <td></td>
+                    <td><img src="../jmg/<?php echo $item1['anh_dai_dien'];
+                    ?>" width="100", height="100 "
+                        /></td>
+                    <td><?php echo $item1['ten_sp'] ?></td>
+                    <td><?php echo $item1['gia'] ?></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button class="giamSL">-</button>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="soluong"><?php echo
+                                            $_SESSION['cart'][$item1['ID']]['quality']
+                                            ?></div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <button class="tangSL">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7"></div>
+                        </div>
+                    </td>
+                    <td><button class="btn btn-warning"
+                                id="xoaSP">Xóa</button></td>
                 </tr>
+                <?php endforeach ?>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-4"><h3>Thành Tiền: </h3></div>
+                <div class="col-md-2"><button class="btn
+                btn-success">Thanh Toán</button> </div>
+            </div>
         </div>
     </form>
 </div>

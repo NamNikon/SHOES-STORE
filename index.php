@@ -4,10 +4,6 @@ include_once('ketnoi.php');
 $db = getDbConnect();
 $tatCaSanPham = $db->query("SELECT * FROM san_pham")->fetchAll();
 
-//$id = $_REQUEST['id'];
-//$sanPham = $db->query("SELECT * FROM san_pham WHERE id = " . $id)->fetch();
-
-
 if(isset($_REQUEST['loai_sp'])) { 
     $idLoaiSP = $_REQUEST['loai_sp'];
     
@@ -33,9 +29,6 @@ if(isset($_REQUEST['tim_kiem'])) {
         $thongBao = 'Không tìm thấy sản phẩm nào!';
     }
 }
-
-
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_POST['sapxep'] == 'MoiNhat') {
