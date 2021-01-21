@@ -35,7 +35,7 @@
     <?php endif ?>
 
     <?php if(isset($spMoi)): ?>
-        <h2 style="color:#fff; text-align: center">Sản phẩm mới</h2>
+        <h2 style="color:#ffffff; text-align: center">Sản phẩm mới</h2>
     <?php foreach($spMoi as $sanPham): ?>
     <div class="box">
         <a href="./?page=product&id=<?php echo $sanPham['ID']; ?>">
@@ -65,6 +65,5 @@
     </div>
     <?php endforeach ?>
     <?php endif ?>
-
 
 </div>

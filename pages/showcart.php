@@ -10,7 +10,10 @@ $list_id = implode(',',$list_id);
 
 $gh = $db->query("SELECT * FROM san_pham WHERE id IN ($list_id)")->fetchAll();
 
+$total = 0;
+
 ?>
+
 
 <html>
 
@@ -47,6 +50,7 @@ $gh = $db->query("SELECT * FROM san_pham WHERE id IN ($list_id)")->fetchAll();
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Giá sản phẩm</th>
                 <th scope="col">Số lượng sản phẩm</th>
+                <th scope="col">Thành Tiền </th>
                 <th scope="col"></th>
                 </thead>
                 <tbody>
@@ -71,7 +75,6 @@ $gh = $db->query("SELECT * FROM san_pham WHERE id IN ($list_id)")->fetchAll();
                                             $_SESSION['cart'][$item1['ID']]['quality']
                                             ?></div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <button class="tangSL">+</button>
                                     </div>
@@ -80,17 +83,28 @@ $gh = $db->query("SELECT * FROM san_pham WHERE id IN ($list_id)")->fetchAll();
                             <div class="col-md-7"></div>
                         </div>
                     </td>
-                    <td><button class="btn btn-warning"
-                                id="xoaSP">Xóa</button></td>
+                    <td><h5><?php echo
+                                (int)$_SESSION['cart'][$item1['ID']]['quality'] *
+                                (int) $item1['gia'] ?></h5></td>
+                    <td><a href="">
+                        <button class="btn btn-warning"
+                                id="xoaSP">Xóa</button></a></td>
                 </tr>
+                    <?php
+                    $total += $_SESSION['cart'][$item1['ID']]['quality'] *
+                        $item1['gia'];
+                    ?>
+
                 <?php endforeach ?>
                 </tbody>
             </table>
             <div class="row">
                 <div class="col-md-6"></div>
-                <div class="col-md-4"><h3>Thành Tiền: </h3></div>
+                <div class="col-md-4"><h3>Tổng Tiền:  <?php echo $total
+                        ?></h3></div>
                 <div class="col-md-2"><button class="btn
-                btn-success">Thanh Toán</button> </div>
+                btn-success"><i class="fas fa-money-bill-wave"></i> Thanh
+                        Toán</button> </div>
             </div>
         </div>
     </form>
